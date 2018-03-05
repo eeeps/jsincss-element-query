@@ -4,6 +4,19 @@
 <link href=https://staticresource.com/data-buttons.css rel=stylesheet>
 <title>Element Query Test</title>
 
+<script>
+var aPE = [];
+var observer = new PerformanceObserver(function(list) {
+        var perfEntries = list.getEntries();
+        for (var i = 0; i < perfEntries.length; i++) {
+            var p = perfEntries[i];
+            aPE.push(p);
+            console.log(p);
+        }
+    });
+observer.observe( { entryTypes: ["longtask"], buffered: true } );
+</script>
+
 <style>
   body style {
     display: block;
